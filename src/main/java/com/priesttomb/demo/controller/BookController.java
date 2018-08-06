@@ -58,4 +58,15 @@ public class BookController {
 	public void delBookById(@PathVariable("id") Integer id) {
 		bookService.delBookById(id);
 	}
+	
+	/**
+	 * 根据书名查书
+	 * @param name
+	 * @return
+	 */
+	@GetMapping(value = "/book/{name}")
+	public Book findByName(@PathVariable("name") String name) {
+		return bookService.findBook(name);
+		//return bookService.findByName(name);
+	}
 }

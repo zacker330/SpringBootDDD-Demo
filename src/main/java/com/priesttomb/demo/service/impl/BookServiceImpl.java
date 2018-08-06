@@ -41,4 +41,15 @@ public class BookServiceImpl implements IBookService {
 		return bookDao.save(book);
 	}
 
+	@Override
+	public Book findBook(String name) {
+		return bookDao.findBook(name);
+	}
+
+	@Override
+	public Book findByName(String name) {
+		return bookDao.findByName(name);
+	}
+
+	
 }

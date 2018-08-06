@@ -12,4 +12,8 @@ public interface IBookService {
 	public void delBookById(Integer id);
 	
 	public Book saveBook(Book book);
+	
+	public Book findBook(String name);
+	
+	public Book findByName(String name);
 }
