@@ -3,10 +3,10 @@
 	<!--输出到控制台 -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{36}) - %msg%n</pattern>
+			<pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>
-	<!--指定一个root 的日志级别为info，指定上面两个输出源继承root日志级别 -->
+	<!--指定一个root日志级别为info -->
 	<root level="info">
 		<appender-ref ref="STDOUT" />
 	</root>

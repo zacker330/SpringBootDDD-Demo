@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.priesttomb.demo.dao.IBookDao;
+import com.priesttomb.demo.repository.IBookRepository;
 import com.priesttomb.demo.service.IBookService;
 import com.priesttomb.demo.vo.Book;
 
@@ -14,16 +14,16 @@ import com.priesttomb.demo.vo.Book;
 public class BookServiceImpl implements IBookService {
 	
 	@Autowired
-	private IBookDao bookDao;
+	private IBookRepository bookRepository;
 
 	@Override
 	public List<Book> getAllBooks() {
-		return bookDao.findAll();
+		return bookRepository.findAll();
 	}
 
 	@Override
 	public Book getBookById(Integer id) {
-		Optional<Book> oBook = bookDao.findById(id);
+		Optional<Book> oBook = bookRepository.findById(id);
 		if(oBook.isPresent()) {
 			return oBook.get();
 		} else {
@@ -33,22 +33,22 @@ public class BookServiceImpl implements IBookService {
 
 	@Override
 	public void delBookById(Integer id) {
-		bookDao.deleteById(id);
+		bookRepository.deleteById(id);
 	}
 
 	@Override
 	public Book saveBook(Book book) {
-		return bookDao.save(book);
+		return bookRepository.save(book);
 	}
 
 	@Override
 	public Book findBook(String name) {
-		return bookDao.findBook(name);
+		return bookRepository.findBook(name);
 	}
 
 	@Override
 	public Book findByName(String name) {
-		return bookDao.findByName(name);
+		return bookRepository.findByName(name);
 	}
 
 	

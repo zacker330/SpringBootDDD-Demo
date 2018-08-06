@@ -23,11 +23,11 @@ public class LogAspect {
 	
 	@Before("pointCutMethod()")
 	public void doBefore(JoinPoint joinPoint) {
-		logger.info("方法执行前，入参："+Arrays.toString(joinPoint.getArgs()));
+		logger.info("before execute, inParam = "+Arrays.toString(joinPoint.getArgs()));
 	}
 	
-	@AfterReturning(pointcut = "pointCutMethod()", returning = "rtnParam")
-	public void doAfterReturning(Object rtnParam) {
-		logger.info("方法执行后，返回参数："+rtnParam);
+	@AfterReturning(pointcut = "pointCutMethod()", returning = "outParam")
+	public void doAfterReturning(Object outParam) {
+		logger.info("after execute, outParam"+outParam);
 	}
 }
