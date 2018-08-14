@@ -28,6 +28,6 @@ public class LogAspect {
 	
 	@AfterReturning(pointcut = "pointCutMethod()", returning = "outParam")
 	public void doAfterReturning(Object outParam) {
-		logger.info("after execute, outParam"+outParam);
+		logger.info("after execute, outParam = "+outParam);
 	}
 }
