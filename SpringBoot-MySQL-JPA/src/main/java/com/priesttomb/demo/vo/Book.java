@@ -1,4 +1,4 @@
-package com.priesttomb.demo.vo;
+package codes.showme.demo.vo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

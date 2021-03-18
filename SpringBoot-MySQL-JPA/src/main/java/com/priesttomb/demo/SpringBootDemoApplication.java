@@ -1,4 +1,4 @@
-package com.priesttomb.demo;
+package codes.showme.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

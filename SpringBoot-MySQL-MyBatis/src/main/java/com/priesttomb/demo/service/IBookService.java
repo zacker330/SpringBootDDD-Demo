@@ -1,8 +1,8 @@
-package com.priesttomb.demo.service;
+package codes.showme.demo.service;
 
 import java.util.List;
 
-import com.priesttomb.demo.vo.Book;
+import codes.showme.demo.vo.Book;
 
 public interface IBookService {
 	public List<Book> getAllBooks();

@@ -1,11 +1,11 @@
-package com.priesttomb.demo.repository;
+package codes.showme.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.priesttomb.demo.vo.Book;
+import codes.showme.demo.vo.Book;
 
 @Repository
 public interface IBookRepository extends JpaRepository<Book, Integer>{

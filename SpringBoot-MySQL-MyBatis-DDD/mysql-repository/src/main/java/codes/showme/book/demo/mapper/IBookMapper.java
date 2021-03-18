@@ -1,10 +1,9 @@
-package codes.showme.demo.mapper;
+package codes.showme.book.demo.mapper;
 
-import java.util.List;
-
+import codes.showme.book.domain.Book;
 import org.apache.ibatis.annotations.Param;
 
-import codes.showme.demo.vo.Book;
+import java.util.List;
 
 public interface IBookMapper {
 	Long save(Book book);

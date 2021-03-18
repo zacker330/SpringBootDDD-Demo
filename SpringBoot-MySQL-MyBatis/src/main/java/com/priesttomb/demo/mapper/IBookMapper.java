@@ -1,10 +1,10 @@
-package com.priesttomb.demo.mapper;
+package codes.showme.demo.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.priesttomb.demo.vo.Book;
+import codes.showme.demo.vo.Book;
 
 public interface IBookMapper {
 	Long save(Book book);

@@ -1,4 +1,4 @@
-package com.priesttomb.demo.vo;
+package codes.showme.demo.vo;
 
 public class Book {
 	

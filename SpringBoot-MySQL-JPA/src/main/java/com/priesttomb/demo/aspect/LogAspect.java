@@ -1,4 +1,4 @@
-package com.priesttomb.demo.aspect;
+package codes.showme.demo.aspect;
 
 import java.util.Arrays;
 
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class LogAspect {
 	private static Logger logger = LoggerFactory.getLogger(LogAspect.class);
 	
-	@Pointcut("execution(* com.priesttomb.demo.service.*.*(..))")
+	@Pointcut("execution(* codes.showme.demo.service.*.*(..))")
 	private void pointCutMethod() {
 		
 	}

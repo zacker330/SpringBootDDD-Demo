@@ -1,4 +1,4 @@
-package com.priesttomb.demo;
+package codes.showme.demo;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

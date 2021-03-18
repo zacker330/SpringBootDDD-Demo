@@ -1,13 +1,13 @@
-package com.priesttomb.demo.service.impl;
+package codes.showme.demo.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.priesttomb.demo.mapper.IBookMapper;
-import com.priesttomb.demo.service.IBookService;
-import com.priesttomb.demo.vo.Book;
+import codes.showme.demo.mapper.IBookMapper;
+import codes.showme.demo.service.IBookService;
+import codes.showme.demo.vo.Book;
 
 @Service
 public class BookServiceImpl implements IBookService {
