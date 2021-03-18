@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="codes.showme.demo.mapper.IBookMapper">
+	<resultMap type="codes.showme.demo.vo.Book" id="BaseResultMap">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="price" property="price" />
+	</resultMap>
+	
+	<sql id="Base_Column">
+		id, name, price
+	</sql>
+	
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column" />
+		from book
+	</select>
+	
+	<select id="findById" resultMap="BaseResultMap" parameterType="int">
+		select
+		<include refid="Base_Column" />
+		from book
+		where id = #{id}
+	</select>
+	
+	<select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column" />
+		from book
+		where name = #{name}
+	</select>
+	
+	<insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="codes.showme.demo.vo.Book">
+		insert into book (name, price)
+		values (#{name}, #{price})
+	</insert>
+	
+	
+	<delete id="deleteById">
+		delete from book where id = #{id}
+	</delete>
+	
+	<update id="updateBook" parameterType="codes.showme.demo.vo.Book">
+		update book
+		<set>
+			<if test="name != null and name != ''">name = #{name},</if>
+			<if test="price != null">price = #{price}</if>
+		</set>
+		where id = #{id}
+	</update>
+</mapper>

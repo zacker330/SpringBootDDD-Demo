@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/SpringBootDemo?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: mysql
+
+server:
+  port: 8080
+
+mybatis:
+  type-aliases-package: codes.showme.demo.vo
+  mapper-locations: classpath:mybatis/mapper/*.xml
