@@ -1,9 +1,13 @@
 package codes.showme.book.domain;
 
 import codes.showme.book.repository.BookRepository;
+import codes.showme.book.service.ReviewService;
+import codes.showme.book.service.WordCountService;
 import codes.showme.tech.ioc.InstanceFactory;
 
 import java.util.List;
+
+import static com.sun.javaws.JnlpxArgs.verify;
 
 public class Book {
 
@@ -12,6 +16,10 @@ public class Book {
     private String name;
 
     private Integer price;
+
+    private String text;
+
+    private long wordCount;
 
     public Book() {
     }
@@ -27,8 +35,26 @@ public class Book {
     }
 
     public long save(){
+        // 计算字数
+        refreshWorldCount();
+
         BookRepository repository = InstanceFactory.getInstance(BookRepository.class);
-        return repository.save(this);
+        Long id = repository.save(this);
+
+        // 审核
+        review(id);
+
+        return id;
+    }
+
+    private void review(long id) {
+        ReviewService reviewService = InstanceFactory.getInstance(ReviewService.class);
+        reviewService.review(id);
+    }
+
+    private void refreshWorldCount(){
+        WordCountService wordCountService = InstanceFactory.getInstance(WordCountService.class);
+        this.wordCount = wordCountService.count(text);
     }
 
     public static List<Book> findAll(){
@@ -63,6 +89,10 @@ public class Book {
         repository.deleteById(id);
     }
 
+    public void setWordCount(long wordCount) {
+        this.wordCount = wordCount;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -87,6 +117,11 @@ public class Book {
         this.price = price;
     }
 
+    public String getText() {
+        return text;
+    }
 
-
+    public void setText(String text) {
+        this.text = text;
+    }
 }

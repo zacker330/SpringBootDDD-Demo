@@ -1,0 +1,58 @@
+package codes.showme.book.service.impl;
+
+
+import codes.showme.book.service.DemoJsonProcessingException;
+import codes.showme.book.service.JsonService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.Map;
+
+@Component
+public class JsonServiceJacksonImpl implements JsonService {
+
+    private static final Logger logger = LoggerFactory.getLogger(JsonServiceJacksonImpl.class);
+
+    @Override
+    public Map<String, Object> toMap(Object object) {
+        final ObjectMapper mapper = new ObjectMapper();
+        return mapper.convertValue(object, Map.class);
+    }
+
+    @Override
+    public <T> T fromMap(Map<String, Object> map, Class<T> clasz) {
+        final ObjectMapper mapper = new ObjectMapper();
+        return mapper.convertValue(map, clasz);
+    }
+
+    @Override
+    public String toJsonString(Object object) {
+        final ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            logger.error("JsonServiceJacksonImpl toJsonString error,o:{}", object, e);
+            throw new DemoJsonProcessingException(e);
+        }
+    }
+
+    @Override
+    public <T> T fromString(String jsonString, Class<T> tClass) {
+        try {
+            return new ObjectMapper()
+                    .readerFor(tClass)
+                    .readValue(jsonString);
+        } catch (JsonProcessingException e) {
+            logger.error("JsonServiceJacksonImpl fromString error,str:{}", jsonString, e);
+            throw new DemoJsonProcessingException(e);
+        } catch (IOException e) {
+            logger.error("JsonServiceJacksonImpl fromString error,str:{}", jsonString, e);
+            throw new DemoJsonProcessingException(e);
+        }
+
+    }
+}

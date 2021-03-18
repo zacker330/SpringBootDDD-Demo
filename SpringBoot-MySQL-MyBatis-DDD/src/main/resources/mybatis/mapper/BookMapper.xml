@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="codes.showme.demo.mapper.IBookMapper">
-	<resultMap type="codes.showme.demo.vo.Book" id="BaseResultMap">
+<mapper namespace="IBookMapper">
+	<resultMap type="Book" id="BaseResultMap">
 		<result column="id" property="id" />
 		<result column="name" property="name" />
 		<result column="price" property="price" />
@@ -31,7 +31,7 @@
 		where name = #{name}
 	</select>
 	
-	<insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="codes.showme.demo.vo.Book">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="Book">
 		insert into book (name, price)
 		values (#{name}, #{price})
 	</insert>
@@ -41,7 +41,7 @@
 		delete from book where id = #{id}
 	</delete>
 	
-	<update id="updateBook" parameterType="codes.showme.demo.vo.Book">
+	<update id="updateBook" parameterType="Book">
 		update book
 		<set>
 			<if test="name != null and name != ''">name = #{name},</if>

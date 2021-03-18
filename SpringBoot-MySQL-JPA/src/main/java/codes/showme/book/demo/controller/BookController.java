@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import codes.showme.demo.service.IBookService;
-import codes.showme.demo.vo.Book;
+import codes.showme.book.service.IBookService;
+import codes.showme.book.vo.Book;
 
 @RestController
 public class BookController {

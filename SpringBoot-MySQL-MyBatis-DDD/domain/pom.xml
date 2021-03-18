@@ -17,6 +17,11 @@
             <artifactId>tech-common</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>codes.showme</groupId>
+            <artifactId>service</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 </project>
