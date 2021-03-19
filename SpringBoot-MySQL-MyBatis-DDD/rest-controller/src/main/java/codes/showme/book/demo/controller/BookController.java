@@ -1,7 +1,9 @@
 package codes.showme.book.demo.controller;
 
 
+import codes.showme.book.demo.controller.vo.BookVo;
 import codes.showme.book.domain.Book;
+import codes.showme.book.domain.BookStar;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -35,8 +37,8 @@ public class BookController {
      * @return
      */
     @GetMapping(value = "/book/{id}")
-    public Book getBookById(@PathVariable("id") Integer id) {
-        return Book.findById(id);
+    public BookVo getBookById(@PathVariable("id") Integer id) {
+        return new BookVo(Book.findById(id), BookStar.agvCount(id));
     }
 
     /**

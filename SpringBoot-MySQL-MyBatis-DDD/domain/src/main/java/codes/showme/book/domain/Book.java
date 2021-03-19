@@ -7,7 +7,6 @@ import codes.showme.tech.ioc.InstanceFactory;
 
 import java.util.List;
 
-import static com.sun.javaws.JnlpxArgs.verify;
 
 public class Book {
 
